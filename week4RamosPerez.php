@@ -92,26 +92,24 @@
 		$divi[0] = $numberValue % 4;       
 		$divi[1] = $numberValue % 100; 
 		$divi[2] = $numberValue % 400;
-
-		for ($i=0; $i<=2; $i++) {
-						
+		$output = "TRUE";
+		//echo "<br>" . "Result of Divisible (4,100,400) " . "--";
+		//echo $divi[0] . " " . $divi[1] . " " . $divi[2] . "<br>";
+ 		
+ 		for ($i=0; $i<=2; $i++) {
 			switch ($divi[$i]) {
 				case 0:
-					if ($i == 2) {
-						$output = "false";
+					if ( $i== 0) {
+						$output = "TRUE";
 						break;
 					}							
 				default:
-					if ($i == 0) {
-						$output = "False";
+					if ($i == 0 || $i == 2 && $divi[1]!=0) {
+						$output = "FALSE";
 						break;
-					} else {
-						$output = "True";
-
 					}
-					
-			}
-		}
-	echo "The year $numberValue -- /$output" . "<br>";
+			}		
+		}		
+	echo "$numberValue is a LEAP YEAR:  $output" . "<br>";
 	}
 ?>	
